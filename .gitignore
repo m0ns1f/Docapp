@@ -23,6 +23,11 @@
 /app/config/parameters.yml
 /app/config/parameters.ini
 
+#SSH KEY
+
+/docapp
+/docapp.pub
+
 # Managed by Composer
 /app/bootstrap.php.cache
 /var/bootstrap.php.cache
