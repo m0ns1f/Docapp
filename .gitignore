@@ -36,6 +36,10 @@
 /web/uploads/
 /public/
 
+# node_modules
+
+/node_modules/
+
 #Lock Files
 /composer.lock
 /symfony.lock
