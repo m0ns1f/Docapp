@@ -2,20 +2,19 @@
     "type": "project",
     "license": "proprietary",
     "require": {
+        "php": "^7.1.3",
         "ext-iconv": "*",
-        "psr/event-dispatcher": "^1.0",
+        "doctrine/orm": "^2.7",
+        "networking/init-cms-bundle": "v4.1.1.2",
         "sensio/framework-extra-bundle": "^5.1",
-        "sulu/sulu": "^2.0",
         "symfony/asset": "^4.0",
         "symfony/console": "^4.0",
         "symfony/flex": "^1.0",
         "symfony/framework-bundle": "^4.0",
-        "symfony/icu": "^1.2",
         "symfony/lts": "^4@dev",
         "symfony/maker-bundle": "^1.4",
-        "symfony/polyfill-php54": "^1.13",
-        "symfony/security-acl": "3.0.0",
         "symfony/twig-bundle": "^4.0",
+        "symfony/validator": "^4.0",
         "symfony/webpack-encore-pack": "^1.0",
         "symfony/yaml": "^4.0"
     },
@@ -49,13 +48,17 @@
     "scripts": {
         "auto-scripts": {
             "cache:clear": "symfony-cmd",
-            "assets:install --symlink --relative %PUBLIC_DIR%": "symfony-cmd"
+            "assets:install --symlink --relative %PUBLIC_DIR%": "symfony-cmd",
+            "security-checker security:check": "script",
+            "ckeditor:install --clear=drop": "symfony-cmd"
         },
         "post-install-cmd": [
-            "@auto-scripts"
+            "@auto-scripts",
+            "Mopa\\Bundle\\BootstrapBundle\\Composer\\ScriptHandler::postInstallSymlinkTwitterBootstrap"
         ],
         "post-update-cmd": [
-            "@auto-scripts"
+            "@auto-scripts",
+            "Mopa\\Bundle\\BootstrapBundle\\Composer\\ScriptHandler::postInstallSymlinkTwitterBootstrap"
         ]
     },
     "conflict": {
@@ -64,7 +67,7 @@
     "extra": {
         "symfony": {
             "id": "01CB73QHKWS78PWBRC2W9F2DPC",
-            "allow-contrib": false
+            "allow-contrib": "true"
         }
     }
 }
